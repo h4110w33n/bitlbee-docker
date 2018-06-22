@@ -1,0 +1,9 @@
+bitlbee:
+  image: 'h4110w33n/bitlbee-plugins-docker:latest'
+  restart: always
+
+  ports:
+    - '127.0.0.1:6667:6667'
+  volumes:
+    - '/opt/bitlbee-data:/opt/bitlbee-data'
+    - '/etc/localtime:/etc/localtime:ro'
