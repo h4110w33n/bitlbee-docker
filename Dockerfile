@@ -1,7 +1,7 @@
 FROM alpine:latest
 LABEL maintainer=h4110w33n
 
-ENV BUILD_DIR /src
+ENV SRC_DIR /src
 
 RUN set -x \
 	&& apk update \
@@ -25,7 +25,8 @@ RUN set -x \
 		libpurple \
 		libwebp-dev \
 		pidgin-dev \
-	&& cd ${BUILD_DIR} \
+	&& mkdir -p ${SRC_DIR} \
+	&& cd ${SRC_DIR} \
 	&& git clone https://github.com/h4110w33n/bitlbee-plugins \
 	&& cd bitlbee-plugins \
 	&& make \
