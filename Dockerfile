@@ -14,7 +14,6 @@ RUN set -x \
 		git \
 		json-glib-dev \
 		libtool \
-		protobuf-c-dev \
 		mercurial \
 	&& apk add --virtual runtime-dependencies \
 		glib-dev \
@@ -25,6 +24,7 @@ RUN set -x \
 		libpurple \
 		libwebp-dev \
 		pidgin-dev \
+		protobuf-c-dev \
 	&& mkdir -p ${SRC_DIR} \
 	&& cd ${SRC_DIR} \
 	&& git clone https://github.com/h4110w33n/bitlbee-plugins \
