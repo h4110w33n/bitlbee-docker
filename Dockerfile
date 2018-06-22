@@ -29,8 +29,7 @@ RUN set -x \
 	&& cd ${SRC_DIR} \
 	&& git clone https://github.com/h4110w33n/bitlbee-plugins \
 	&& cd bitlbee-plugins \
-	&& make \
-	&& make install \
+	&& make all \
 	&& make clean-all \
 	&& apk del --purge build-dependencies \
 	&& adduser -u 1000 -S bitlbee \
@@ -43,4 +42,3 @@ RUN set -x \
 USER bitlbee
 VOLUME /opt/bitlbee-data
 ENTRYPOINT ["/usr/local/sbin/bitlbee", "-F", "-n", "-d", "/opt/bitlbee-data"]
-
