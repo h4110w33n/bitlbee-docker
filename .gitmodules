@@ -1,0 +1,3 @@
+[submodule "bitlbee-plugins"]
+	path = bitlbee-plugins
+	url = https://github.com/h4110w33n/bitlbee-plugins

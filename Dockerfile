@@ -1,7 +1,9 @@
 FROM alpine:latest
 LABEL maintainer=h4110w33n
 
-ENV SRC_DIR /src
+ENV SOURCE_DIR /src/bitlbee-plugins
+
+COPY bitlbee-plugins/ /src/bitlbee-plugins/
 
 RUN set -x \
 	&& apk update \
@@ -15,6 +17,7 @@ RUN set -x \
 		json-glib-dev \
 		libtool \
 		mercurial \
+		discount-dev \
 	&& apk add --virtual runtime-dependencies \
 		glib-dev \
 		gnutls-dev \
@@ -25,10 +28,7 @@ RUN set -x \
 		libwebp-dev \
 		pidgin-dev \
 		protobuf-c-dev \
-	&& mkdir -p ${SRC_DIR} \
-	&& cd ${SRC_DIR} \
-	&& git clone https://github.com/h4110w33n/bitlbee-plugins \
-	&& cd bitlbee-plugins \
+	&& cd /src/bitlbee-plugins \
 	&& make all \
 	&& make clean-all \
 	&& apk del --purge build-dependencies \
