@@ -1,10 +1,6 @@
 FROM alpine:latest
 LABEL maintainer=h4110w33n
 
-ENV SOURCE_DIR /src/bitlbee-plugins
-
-COPY bitlbee-plugins/ /src/bitlbee-plugins/
-
 RUN set -x \
 	&& apk update \
 	&& apk upgrade \
@@ -28,6 +24,8 @@ RUN set -x \
 		libwebp-dev \
 		pidgin-dev \
 		protobuf-c-dev \
+	&& mkdir -p /src \
+	&& git clone https://github.com/h4110w33n/bitlbee-plugins /src/bitlbee-plugins \
 	&& cd /src/bitlbee-plugins \
 	&& make all \
 	&& make clean-all \
