@@ -24,6 +24,7 @@ RUN set -x \
 		libwebp-dev \
 		pidgin-dev \
 		protobuf-c-dev \
+		ca-certificates \
 	&& mkdir -p /src \
 	&& git clone https://github.com/h4110w33n/bitlbee-plugins /src/bitlbee-plugins \
 	&& cd /src/bitlbee-plugins \
